@@ -1,0 +1,22 @@
+{
+  "name": "Ang",
+  "version": "1.0.0",
+  "authors": [
+    "PankajBhatt"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.4",
+    "bootstrap": "~3.3.5"
+  }
+}
