@@ -8,24 +8,20 @@
 			$scope.names = names; 
 			$scope.myName = 'Pankaj Bhatt';  // Just for initial display.
 		});
-     
-	 app.directive('highlight', function() { 
-		return function(scope,elements,attrs) {
-				alert("value of attrs ," + JSON.stringify(attrs));
-		
-		}
-	 });
+     app.run(function() {
+			alert("Angular has been set up totally. ")	 ;
+		})	;
 </script>		
 </head>
 <body>
-Example 5: 
+Example 4: 
 <ol>
-	<li>Create a directive - Simple one (attribute of an html element)  </li>
+	<li>This tutorial Shows us use hwo to use RUN method to perform setup Tasks  </li>
     
 </ol>
 </b><br/><br/>
-<div ng-controller="nameController" highlight="RED">
-	<input type="text" ng-model="myName" highlight="BLUE"> 
+<div ng-controller="nameController">
+	<input type="text" ng-model="myName"> 
 	
 	My Name that i entered in text box is <b>"{{myName}}"</b><br/><br/>
 	

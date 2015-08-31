@@ -1,0 +1,43 @@
+<html ng-app="myApp">
+<head>
+<script src="../../bower_components/angular/angular.min.js" type="text/javascript"> </script>
+<script type="text/javascript">
+	var app = angular.module("myApp", [], function() { } ) ;
+	var names = [  { "name" : "ram", "age" : 28},{"name" : "Shyam", "age" : 28},{ "name" : "Pankaj", "age" : 28}];
+	     
+	 var friendName = "Shyam" ;
+	  app.value('nameValue', friendName) ;
+	 
+	  app.controller("nameController", ['$scope','nameValue',function($scope,nameValue){
+			console.log(nameValue);
+			$scope.myName = nameValue;  // Just for initial display.
+			$scope.names = names; 
+		}]);
+	
+		
+</script>		
+</head>
+<body>
+Example 9 
+<ol>
+	<li>Data Binding - ONE WAY. </li>
+    
+</ol>
+</b><br/><br/>
+<div ng-controller="nameController" >
+	
+	Number of Names = {{ names.length}} <br/><br/>
+	via SPAN , no of names = <span ng-bind="names.length"></span> <br/><br/>
+	via ng-bind-template  <span ng-bind-template="Length of elements <b> {{names.length}}</b>"></span>  <br/><br/>
+	ng-non-bindable <span ng-non-bindable> {{names.length}} </span>
+	
+<div>
+<table>
+  <ol>
+	
+  </ol>
+
+</div>
+</body>
+</head>
+</html>
