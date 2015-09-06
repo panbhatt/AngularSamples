@@ -1,0 +1,68 @@
+<html ng-app="myApp">
+<head>
+<script src="../../bower_components/angular/angular.min.js" type="text/javascript"> </script>
+<script type="text/javascript">
+	var app = angular.module("myApp", [], function() { } ) ;
+	var names = [  { "name" : "ram", "age" : 28},{"name" : "Shyam", "age" : 28},{ "name" : "Pankaj", "age" : 28}];
+	     
+	 var friendName = "Shyam" ;
+	  app.value('nameValue', friendName) ;
+	  
+	 
+	  app.controller("nameController", ['$scope','nameValue',function($scope,nameValue){
+			
+			$scope.myName = nameValue;  // Just for initial display.
+			$scope.names = names; 
+			$scope.options = ['None','Table','List'];
+				$scope.selOp = {
+					selected : "None",
+				}
+				
+			
+		}]);
+	
+		
+</script>		
+</head>
+<body>
+Example 10
+<ol>
+	<li>NG-switch </li>
+    
+</ol>
+</b><br/><br/>
+<div ng-controller="nameController" >
+	<table>
+	<tr ng-repeat="cbox in options">
+		<td>{{$index + 1}}</td>
+		<td><input type="radio" ng-model="selOp.selected" value="{{cbox}}" ng-checked="$first" name="radioBox">{{cbox}}</input>
+	</tr>
+	</table><br/><br/>
+	{{selOp.selected}} Here I AM.<br/><br/>
+	<div ng-switch="selOp.selected">
+		<div ng-switch-when="None" >
+				Nothing should be displayed. 
+		</div>
+		<div ng-switch-when="Table" >
+				Table should be displayed. 
+		</div>
+		<div ng-switch-when="List" >
+				List should be displayed. 
+		</div>
+		<div ng-switch-default >
+				Default should be displayed. 
+		</div>
+	</div>
+	
+		
+	
+<div>
+<table>
+  <ol>
+	
+  </ol>
+
+</div>
+</body>
+</head>
+</html>

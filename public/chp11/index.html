@@ -1,0 +1,71 @@
+<html ng-app="myApp">
+<head>
+<script src="../../bower_components/angular/angular.min.js" type="text/javascript"> </script>
+<script type="text/javascript">
+	var app = angular.module("myApp", [], function() { } ) ;
+	var names = [  { "name" : "ram", "age" : 28},{"name" : "Shyam", "age" : 28},{ "name" : "Pankaj", "age" : 28}];
+	     
+	 var friendName = "Shyam" ;
+	  app.value('nameValue', friendName) ;
+	  
+	 
+	  app.controller("nameController", ['$scope','nameValue',function($scope,nameValue){
+			
+			$scope.myName = nameValue;  // Just for initial display.
+			$scope.names = names; 
+			$scope.options = ['None','Table','List'];
+				$scope.selOp = {
+					selected : "None",
+				}
+			$scope.login = function()
+			{
+				alert(JSON.stringify($scope.user));
+			}
+			$scope.emailChecked = function() {
+				alert($scope.user.sendEmail);
+			}
+				
+			
+		}]);
+	
+		
+</script>		
+</head>
+<body>
+Example 11
+<ol>
+	<li>Angluar FORMS.  </li>
+    
+</ol>
+</b><br/><br/>
+<div ng-controller="nameController" >
+	<form name="myForm" novalidate>
+		<br/>
+		<label for="userEmail" >Enter Name</label>
+		<input name="userEmail" "type="email" required ng-model="user.email" ></input><br/>
+		<label for="userPassword"> Enter Password </label>
+		<input name="userPassword" type="password" required ng-model="user.pasword"></input><br/>
+		<br/><input name="userTerms" type="checkbox" ng-model="user.termsAccepted" required></input>Accept Terms and Conditions<br/>
+		
+		<input type="button" ng-click="login()" ng-disabled="myForm.$invalid" value="submit">Submit</button>
+	</form>
+	
+	<div id="formValid">Form Valid: {{myForm.$valid}} </div><br/>
+	<div id="formerrors"> Form Errors : {{ myForm.$error}} </div>
+	<br/>
+	Checkbox state {{ myForm.userTerms}}
+	
+	<br/>____________________________________________________________________________________________________________________________________________________	
+	<form name="contactForm"	novalidate>
+		<input name="contactEmail" type="checkbox" ng-model="user.sendEmail" ng-true-value="'YfdES'" ng-false-value="'NffO'"  ng-change="emailChecked()">Send Email </input>
+		<div id="chkValue" > TTT{{sendEmail}} </div>
+	</form>
+		
+		
+</div>		
+	
+		
+	
+</body>
+</head>
+</html>
