@@ -1,0 +1,53 @@
+<html ng-app="myApp">
+<head>
+<script src="../../bower_components/angular/angular.min.js" type="text/javascript"> </script>
+<script type="text/javascript">
+	var app = angular.module("myApp", [], function() { } ) ;
+	  
+	  app.controller("parentCtrl", ['$scope',function($scope){
+			
+			$scope.products = [ { "id" : 10, "itemName" : "Wine"},{ "id" : 11, "itemName" : "Whiskey"}, { "id" : 12, "itemName" : "Margarita"} ];
+			$scope.pname = "Pankaj Bhatt.";
+			$scope.hname= "ABCD XY Z";
+		}]);
+		
+	  app.directive('orderedList',function() { 
+		return {
+			restrict : 'AE',
+			template : "<label> For Name -> {{ personname}}</label> <br/>Enter your name <input type='text' ng-model='personname'></input><br/>Human name is {{humanname}} Enter new human name <input type='text' ng-model='humanname'></input><br/><br/>",
+			scope : {
+				personname : '@boyname',
+				humanname : '=humname'
+			}
+		} ;
+	  });
+		
+		
+</script>		
+</head>
+<body>
+Example 16
+<ol>
+	<li>Simple Plain Directives- - Isolated scope - One & two way binding </li>
+    
+</ol>
+</b><br/><br/>
+<div ng-controller="parentCtrl" >
+	
+			
+			Enter parent controller name : <input type='text' name='NameBox' ng-model='pname'></input> <br/><br/>
+			Enter parent controller HUMAN NAME name : <input type='text' name='HumanNameBox' ng-model='hname'></input> <br/><br/>
+			<ordered-list boyname="{{pname}}" humname="hname"></ordered-list>
+			
+			
+		 
+		 <br/>
+		
+		
+</div>		
+	
+		
+	
+</body>
+</head>
+</html>

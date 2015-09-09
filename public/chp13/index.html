@@ -1,0 +1,42 @@
+<html ng-app="myApp">
+<head>
+<script src="../../bower_components/angular/angular.min.js" type="text/javascript"> </script>
+<script type="text/javascript">
+	var app = angular.module("myApp", [], function() { } ) ;
+	  
+	  app.controller("parentCtrl", [function(){
+			
+			this.userName = "";
+			this.user = { name : ''};
+			this.showUserName = function() {
+				alert("Top Controller " , $scope.userName, " Object = " , $scope.user.name);
+			};	
+		}]);
+		
+		
+		
+</script>		
+</head>
+<body>
+Example 13
+<ol>
+	<li>Controller without SCOPE. </li>
+    
+</ol>
+</b><br/><br/>
+<div ng-controller="parentCtrl as ctrl" >
+	
+		 UserName : <input type="text" name="userName" ng-model="ctrl.userName"> &nbsp;&nbsp;&nbsp;
+		 Obj UserName : <input type="text" name="userName" ng-model="ctrl.user.name">
+		 <br/><br/> Contents Parent Ctrl : Name = {{ctrl.userName}} Object user name = {{ctrl.user.name}}
+		 
+		 <br/>
+		
+		
+</div>		
+	
+		
+	
+</body>
+</head>
+</html>

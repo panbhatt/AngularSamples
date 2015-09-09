@@ -1,0 +1,58 @@
+<html ng-app="myApp">
+<head>
+<script src="../../bower_components/angular/angular.min.js" type="text/javascript"> </script>
+<script type="text/javascript">
+	var app = angular.module("myApp", [], function() { } ) ;
+	  
+	  app.controller("parentCtrl", ['$scope',function($scope){
+			
+			$scope.products = [ { "id" : 10, "itemName" : "Wine"},{ "id" : 11, "itemName" : "Whiskey"}, { "id" : 12, "itemName" : "Margarita"} ];
+		}]);
+		
+	  app.directive('orderedList',function() { 
+		return function(scope,element,attrs) {
+				console.log(JSON.stringify(scope.products)) ;
+				console.log("Attributes list =  ", JSON.stringify(attrs)) ;
+				var ulList = angular.element("<ul>") ;
+				element.append(ulList) ;
+				var prop = attrs['orderedList'];
+				console.log("property specified = ", prop) ;
+				var length = scope[prop].length;
+				for( i=0;i<length;i++)
+				{
+					ulList.append(angular.element("<li>").text(scope[prop][i].itemName)) ;
+					console.log(scope[prop][i].itemName) ;
+				}
+				
+		} ;
+	  });
+		
+		
+</script>		
+</head>
+<body>
+Example 15
+<ol>
+	<li>Simple Plain Directives </li>
+    
+</ol>
+</b><br/><br/>
+<div ng-controller="parentCtrl" >
+	
+			
+			<div ordered-list="products">
+				First thing in the DIV
+			</div>
+			
+			
+		 
+		 <br/>
+		
+		
+</div>		
+	
+		
+	
+</body>
+</head>
+</html>
