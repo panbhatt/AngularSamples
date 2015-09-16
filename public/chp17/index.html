@@ -1,0 +1,67 @@
+<html ng-app="myApp">
+<head>
+<script src="../../bower_components/angular/angular.min.js" type="text/javascript"> </script>
+<script type="text/javascript">
+	var app = angular.module("myApp", [], function() { } ) ;
+	  
+	  app.factory('myLogService',function() {
+				var count = 0; 
+				return {
+					log : function (i) {
+							console.log('Value of Count = ', count) ;
+							if(i)
+								count+=i; 
+							else
+								count+=1;
+								
+					}
+						
+				}
+		});
+	  
+	  app.controller("parentCtrl", ['$scope','myLogService', function($scope, myLogService){
+			
+			$scope.products = [ { "id" : 10, "itemName" : "Wine"},{ "id" : 11, "itemName" : "Whiskey"}, { "id" : 12, "itemName" : "Margarita"} ];
+			$scope.pname = "Pankaj Bhatt.";
+			$scope.hname= "ABCD XY Z";
+			$scope.logMyData = function(i) { 
+				alert('come here') ;
+				myLogService.log(i);
+			}
+			$scope.numb = 1; 
+		}]);
+		
+		
+		
+	
+		
+		
+</script>		
+</head>
+<body>
+Example 17
+<ol>
+	<li>SService Object Creation - via Factory Method()</li>
+	
+</ol>
+</b><br/><br/>
+<div ng-controller="parentCtrl" >
+	
+			
+			
+	<input type="text"  ng-model="numb"></input>
+	<input type="button" ng-click="logMyData(numb)" value="Click me"></input>
+    
+			
+			
+		 
+		 <br/>
+		
+		
+</div>		
+	
+		
+	
+</body>
+</head>
+</html>
